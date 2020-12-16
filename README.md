@@ -8,3 +8,5 @@ How to get started :
 -Go into the project and use npm install 
 -Then, use the command ./mvnw the first time you build the project 
 -The other times, use ./mvnw -P-webpack, it makes it faster and should auto reload the project 
+
+-Alternative : npm start in powershell, and launch on eclipse your project. 
