@@ -1,0 +1,39 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "tse.fise3.grouq.startup_poc"
+    },
+    "jhipsterVersion": "6.10.5",
+    "applicationType": "monolith",
+    "baseName": "startupPoc",
+    "packageName": "tse.fise3.grouq.startup_poc",
+    "packageFolder": "tse/fise3/grouq/startup_poc",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "no",
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Memory",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "Y2Y5OWM3OWU4MDNjYjAzMjVjYzJiODlkN2E2NGQ5NGNlYjA0YjIyYzhiOTFlZjk2MzUyMTJkNDQ1YTI4MGQ2NDBmYzUyNzZiZjZjMTAwNmE2MWE3OTcwZWRiZjk2ODNhMTg4ZjU3YzUzODg4ZjQ5YWMzZTUwN2NjMDliYzRlYjY=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "united",
+    "clientThemeVariant": "dark",
+    "creationTimestamp": 1608123330191,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false,
+    "blueprints": []
+  }
+}
