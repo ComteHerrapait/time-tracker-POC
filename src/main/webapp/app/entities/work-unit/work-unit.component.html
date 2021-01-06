@@ -1,0 +1,75 @@
+<div>
+    <h2 id="page-heading">
+        <span>Work Units</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-work-unit" [routerLink]="['/work-unit/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span>
+            Create a new Work Unit
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="workUnits?.length === 0">
+        <span>No workUnits found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="workUnits && workUnits.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span>ID</span></th>
+                    <th scope="col" ><span>Duration</span></th>
+                    <th scope="col" ><span>Date</span></th>
+                    <th scope="col" ><span>Description</span></th>
+                    <th scope="col" ><span>User</span></th>
+                    <th scope="col" ><span>Project</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let workUnit of workUnits ;trackBy: trackId">
+                    <td><a [routerLink]="['/work-unit', workUnit.id, 'view']">{{ workUnit.id }}</a></td>
+                    <td>{{ workUnit.duration }}</td>
+                    <td>{{ workUnit.date | date:'mediumDate' }}</td>
+                    <td>{{ workUnit.description }}</td>
+                    <td>
+                        {{ workUnit.user?.login }}
+                    </td>
+                    <td>
+                        <div *ngIf="workUnit.project">
+                            <a [routerLink]="['/project', workUnit.project?.id, 'view']" >{{ workUnit.project?.name }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/work-unit', workUnit.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/work-unit', workUnit.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(workUnit)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
