@@ -27,6 +27,7 @@ export class UserManagementUpdateComponent implements OnInit {
     ],
     firstName: ['', [Validators.maxLength(50)]],
     lastName: ['', [Validators.maxLength(50)]],
+    manager: ['', [Validators.maxLength(50)]],
     email: ['', [Validators.minLength(5), Validators.maxLength(254), Validators.email]],
     activated: [],
     langKey: [],
@@ -77,6 +78,7 @@ export class UserManagementUpdateComponent implements OnInit {
       login: user.login,
       firstName: user.firstName,
       lastName: user.lastName,
+      manager: user.manager,
       email: user.email,
       activated: user.activated,
       langKey: user.langKey,
@@ -88,6 +90,7 @@ export class UserManagementUpdateComponent implements OnInit {
     user.login = this.editForm.get(['login'])!.value;
     user.firstName = this.editForm.get(['firstName'])!.value;
     user.lastName = this.editForm.get(['lastName'])!.value;
+    user.manager = this.editForm.get(['manager'])!.value;
     user.email = this.editForm.get(['email'])!.value;
     user.activated = this.editForm.get(['activated'])!.value;
     user.langKey = this.editForm.get(['langKey'])!.value;
