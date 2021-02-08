@@ -3,7 +3,9 @@ package tse.fise3.grouq.startup_poc.service;
 import tse.fise3.grouq.startup_poc.config.Constants;
 import tse.fise3.grouq.startup_poc.domain.Authority;
 import tse.fise3.grouq.startup_poc.domain.User;
+import tse.fise3.grouq.startup_poc.domain.UserExtra;
 import tse.fise3.grouq.startup_poc.repository.AuthorityRepository;
+import tse.fise3.grouq.startup_poc.repository.UserExtraRepository;
 import tse.fise3.grouq.startup_poc.repository.UserRepository;
 import tse.fise3.grouq.startup_poc.security.AuthoritiesConstants;
 import tse.fise3.grouq.startup_poc.security.SecurityUtils;
@@ -35,15 +37,18 @@ public class UserService {
     private final Logger log = LoggerFactory.getLogger(UserService.class);
 
     private final UserRepository userRepository;
+    
+    private final UserExtraRepository userExtraRepository;
 
     private final PasswordEncoder passwordEncoder;
 
     private final AuthorityRepository authorityRepository;
 
-    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, AuthorityRepository authorityRepository) {
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, AuthorityRepository authorityRepository, UserExtraRepository userExtraRepository) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.authorityRepository = authorityRepository;
+        this.userExtraRepository = userExtraRepository;
     }
 
     public Optional<User> activateRegistration(String key) {
@@ -124,6 +129,40 @@ public class UserService {
         userRepository.delete(existingUser);
         userRepository.flush();
         return true;
+    }
+    
+    public User createUser(String login, String password, String firstName, String lastName, String email,
+    					   String imageUrl, String langKey) {
+    	
+    	User user = new User();
+    	Authority authority = authorityRepository.findById(AuthoritiesConstants.USER).get();
+        Set<Authority> authorities = new HashSet<>();
+        String encryptedPassword = passwordEncoder.encode(password);
+        user.setLogin(login);
+        // new user gets initially a generated password
+        user.setPassword(encryptedPassword);
+        user.setFirstName(firstName);
+        user.setLastName(lastName);
+        user.setEmail(email);
+        user.setImageUrl(imageUrl);
+        user.setLangKey(langKey);
+        // new user is not active
+        user.setActivated(false);
+        // new user gets registration key
+        user.setActivationKey(RandomUtil.generateActivationKey());
+        authorities.add(authority);
+        user.setAuthorities(authorities);
+        userRepository.save(user);
+        log.debug("Created Information for User: {}", user);
+
+        // Create and save the UserExtra entity
+        UserExtra newUserExtra = new UserExtra();
+        newUserExtra.setUser(user);
+        userExtraRepository.save(newUserExtra);
+        log.debug("Created Information for UserExtra: {}", newUserExtra);
+
+        return user;
+    	
     }
 
     public User createUser(UserDTO userDTO) {
