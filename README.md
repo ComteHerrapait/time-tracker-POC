@@ -64,3 +64,5 @@ Our API documentation is accessible on our application.
 * Go to *administration* in the navbar.
 * Then click on *API*, here you go.
 
+Here is an example of what you can see:
+![API_query_example](/ressources_readme/API_query_example.png)
