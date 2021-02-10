@@ -66,7 +66,8 @@ Our API documentation is accessible on our application.
 
 Here is an example of what you can see:
 ![API_query_example](/ressources_readme/API_query_example.png) 
-Different query types
+*Different query types* 
+
 ![API_post_query_example1](/ressources_readme/API_post_query_example1.png) 
 ![API_post_query_example2](/ressources_readme/API_post_query_example2.png)
-POST query content example
+*POST query content example*
