@@ -23,7 +23,7 @@ It is a technology that uses both Angular and Springboot in order to generate a 
 ## Project files description
 ### Front end
 The front end of the application is made with Angular so the code is separated in HTML files, router files and SCSS files mostly.
-This is a complex tree structure but quite clear to understand. Each page is divided into smaller components.
+This is a complex tree structure but quite clear to understand. Each page is divided into smaller components.  
 There are too many files to describe them all. For example let's look at the home page structure:
 * a navbar: *1 .html file, 2 .ts files and 1 .scss file*.
   * drop menus.
@@ -34,7 +34,9 @@ There are too many files to describe them all. For example let's look at the hom
 ### Back end
 
 ### Tests
-
+JHipster also created tests for us.
+* Every component of the front end of the application is tested.
+* Same for the back.
 
 ## Users stories completed
 * Login/password connection.
