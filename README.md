@@ -25,6 +25,15 @@ Because it creates a lot of things, we start with a very heavy project with a lo
 ### Front end
 
 ### Back end
+* tse.fise3.grouq.startup_poc : Initializes the project
+* tse.fise3.grouq.startup_poc.config : Basic configurations and properties of the project (Database, ...)
+* tse.fise3.grouq.startup_poc.domain : Creates the different entities of the project (User, Project, WorkUnit, ...)
+* tse.fise3.grouq.startup_poc.repository : Initializes the different Repositories
+* tse.fise3.grouq.startup_poc.security : Initializes the different authorities (Admin, Manager, User, ...)
+* tse.fise3.grouq.startup_poc.service : Initializes the services to manage a user and send emails (not working because no SMTP server was created)
+* tse.fise3.grouq.startup_poc.web.rest : Initializes the api to allow access to different informations (about the users, the work units, ...)
+* tse.fise3.grouq.startup_poc.web.rest.errors : Initializes the errors for the api
+* tse.fise3.grouq.startup_poc.web.rest.vm : Initializes the view models for Login and Password
 
 ### Tests
 
