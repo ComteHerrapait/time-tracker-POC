@@ -16,9 +16,10 @@ As we wanted to use Angular and Springboot, we chose JHipster for this project.
 It is a technology that uses both Angular and Springboot in order to generate a very solid base of code.
 
 ### Advantages
+Jhipster allows us to not start a project from scratch. It helps us create a project with a front already working, two types of users already done (Admin and User), an easy way to create and modify accounts, an easily accessible API, and even more. Moreover, they have a tool called JDL-studio in which we can easily add new types of data, like Project or WorkUnit by drawing a UML diagram.
 
 ### Drawbacks
-
+Because it creates a lot of things, we start with a very heavy project with a lot of files. Unfortunately, partly because of our lack of experience, it is then very hard to navigate in this project to modify it. Even when we want to add little things, like a Manager role, many files need to be modified if we want everything to work properly. Something even harder to do is to modify the base User, because if we change anything in the file it will break the whole project. So, because of those problems, we have lost a lot of time and did not manage to complete the project.
 
 ## Project files description
 ### Front end
@@ -32,6 +33,15 @@ There are too many files to describe them all. For example let's look at the hom
 * a center main component where different informations can be displayed depending on the menu item you selected: *1 .html file, 3 .ts files and 1 .scss file*.
 
 ### Back end
+* tse.fise3.grouq.startup_poc : Initializes the project
+* tse.fise3.grouq.startup_poc.config : Basic configurations and properties of the project (Database, ...)
+* tse.fise3.grouq.startup_poc.domain : Creates the different entities of the project (User, Project, WorkUnit, ...)
+* tse.fise3.grouq.startup_poc.repository : Initializes the different Repositories
+* tse.fise3.grouq.startup_poc.security : Initializes the different authorities (Admin, Manager, User, ...)
+* tse.fise3.grouq.startup_poc.service : Initializes the services to manage a user and send emails (not working because no SMTP server was created)
+* tse.fise3.grouq.startup_poc.web.rest : Initializes the api to allow access to different informations (about the users, the work units, ...)
+* tse.fise3.grouq.startup_poc.web.rest.errors : Initializes the errors for the api
+* tse.fise3.grouq.startup_poc.web.rest.vm : Initializes the view models for Login and Password
 
 ### Tests
 JHipster also created tests for us.
