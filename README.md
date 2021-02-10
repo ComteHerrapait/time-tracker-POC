@@ -10,7 +10,7 @@ The goal of this project was to create a web application for a development compa
   
 * Alternative : npm start in powershell, and launch on eclipse your project.   
 
-## Chosen technic stack
+## Chosen technologies
 ### Description
 As we wanted to use Angular and Springboot, we chose JHipster for this project.
 It is a technology that uses both Angular and Springboot in order to generate a very solid base of code.
@@ -22,6 +22,14 @@ It is a technology that uses both Angular and Springboot in order to generate a 
 
 ## Project files description
 ### Front end
+The front end of the application is made with Angular so the code is separated in HTML files, router files and SCSS files mostly.
+This is a complex tree structure but quite clear to understand. Each page is divided into smaller components.
+There are too many files to describe them all. For example let's look at the home page structure:
+* a navbar: *1 .html file, 2 .ts files and 1 .scss file*.
+  * drop menus.
+  * connection access.
+* a footer: *1 .html file, 1 .ts file*.
+* a center main component where different informations can be displayed depending on the menu item you selected: *1 .html file, 3 .ts files and 1 .scss file*.
 
 ### Back end
 
@@ -29,7 +37,7 @@ It is a technology that uses both Angular and Springboot in order to generate a 
 
 
 ## Users stories completed
-* Login/password connection
+* Login/password connection.
 * Different users roles with different authorizations : user, manager, admin.
 * A user can enter the time spent on projects.
 * A manager can create projects.
@@ -39,5 +47,8 @@ It is a technology that uses both Angular and Springboot in order to generate a 
 * A not logged in user can't make API calls.
 
 ## API
-
+Our API documentation is accessible on our application.
+* Log in as *admin* (admin/admin).
+* Go to *administration* in the navbar.
+* Then click on *API*, here you go.
 
